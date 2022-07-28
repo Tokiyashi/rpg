@@ -1,0 +1,12 @@
+.character__name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.character__name>input{
+    display: flex;
+    text-align: left;
+    border: none;
+    background-color: rgba(0,0,0,0);
+    font-size: 30px;
+}

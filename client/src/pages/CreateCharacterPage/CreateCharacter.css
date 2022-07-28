@@ -1,0 +1,11 @@
+.create-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.create-form>input,.create-form>button{
+    padding: 5px;
+    border-radius: 8px;
+}
