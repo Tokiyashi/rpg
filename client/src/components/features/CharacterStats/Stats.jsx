@@ -1,10 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Stat from "./Stat";
 import {useSelector} from "react-redux";
 import cl from './Stats.module.css'
 
 const Stats = () => {
     const currentCharacter = useSelector(state => state.character)
+    const [damage, setDamage] = useState(0);
+
+    const takeDamage = () => {
+        if (3+ +currentCharacter.stats.strength-damage === 0)
+            return
+        setDamage(damage +1)
+    }
 
     return (
         <div className={cl.stats}>
@@ -16,10 +23,11 @@ const Stats = () => {
                 <Stat title="Харизма" name={"charisma"}/>
             </div>
             <div className={cl.stats__computed}>
-                <div> Жизненная сила: {3 + +currentCharacter.stats.strength} </div>
+                <div> Жизненная сила: {3 + +currentCharacter.stats.strength - damage} </div>
                 <div> Увороты: {10 + +currentCharacter.stats.agility} </div>
                 <div> Энергия: {+currentCharacter.stats.agility + +currentCharacter.stats.intelligence} </div>
             </div>
+            <button onClick={()=> takeDamage()}> Получить урон </button>
         </div>
     );
 };
