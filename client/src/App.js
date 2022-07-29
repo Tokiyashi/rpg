@@ -7,8 +7,8 @@ function App() {
     return (
         <div className="wrapper">
             <Routes>
-                <Route path='/' element={<CreateCharacter/>}/>
                 <Route path='/character' element={<Character/>}/>
+                <Route path='*' element={<CreateCharacter/>}/>
             </Routes>
         </div>
     );

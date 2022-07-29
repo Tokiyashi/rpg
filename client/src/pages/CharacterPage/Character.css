@@ -9,20 +9,3 @@
     border-radius: 20px;
 }
 
-.character__selector__preview{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.character__selector{
-    padding: 20px;
-    border: 2px solid #DF7861;
-    border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-}
-

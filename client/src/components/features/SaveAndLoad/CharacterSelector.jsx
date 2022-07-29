@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {logDOM} from "@testing-library/react";
-import {Link} from "react-router-dom";
+import {addToClipboard} from "../../../utils/addToClipboard";
+import cl from './CharacterSelect.module.css'
 
 const CharacterSelector = () => {
-
     const [savedCharacters, setSavedCharacters] = useState([]);
-    const [selectedCharacter, setSelectedCharacter] = useState(0)
+    const [selectedCharacter, setSelectedCharacter] = useState(0);
 
     const dispatch = useDispatch();
     const currentCharacter = useSelector(state => state.character)
@@ -23,8 +22,7 @@ const CharacterSelector = () => {
         for (let i = 0; i<keys.length; i++) {
             values.push(JSON.parse(localStorage.getItem(keys[i])));
         }
-        console.log(values)
-            setSavedCharacters(values);
+        setSavedCharacters(values);
     }
 
     const loadCharacter = () => {
@@ -47,8 +45,8 @@ const CharacterSelector = () => {
 
 
     return (
-        <div className="character__selector">
-            <button onClick={()=> {console.log(JSON.stringify(currentCharacter))}}> Экспорт персонажа </button>
+        <div className={cl.character__selector}>
+            <button onClick={()=> {addToClipboard(JSON.stringify(currentCharacter))}}> Экспорт персонажа </button>
             <button onClick={()=> saveCharacter()}> Сохранить </button>
             <button onClick={()=> {
                 localStorage.clear();
@@ -58,7 +56,7 @@ const CharacterSelector = () => {
             <div>
                 {
                     (savedCharacters.length > 0) &&
-                    <div className="character__selector__preview">
+                    <div className={cl.character__selector__preview}>
                         <button onClick={() => handleClickLeft()}> Предыдущий </button>
                         {savedCharacters[selectedCharacter].name}
                         <button onClick={()=> handleClickRight() }> Следующий </button>
@@ -66,7 +64,6 @@ const CharacterSelector = () => {
                     </div>
                 }
             </div>
-
         </div>
     );
 };

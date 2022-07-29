@@ -30,8 +30,12 @@ export const characterReducer = (state = character, action) => {
             return {...state, stats: action.payload}
         case "CHANGE_SKILL":
             return {...state, skills: {...state.skills, [action.payload.skill]: action.payload.value}}
+        case "CHANGE_SKILLS":
+            return {...state, skills: action.payload}
         case "LOAD_CHARACTER":
             return { ...action.payload }
+        case "RESET_CHARACTER":
+            return { ...character}
         default:
             return state
     }

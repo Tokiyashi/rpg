@@ -4,7 +4,6 @@ import {useSelector} from "react-redux";
 import cl from './Stats.module.css'
 
 const Stats = () => {
-
     const currentCharacter = useSelector(state => state.character)
 
     return (

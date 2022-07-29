@@ -9,3 +9,22 @@
     padding: 5px;
     border-radius: 8px;
 }
+.create-form__import{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.create-form__import>button{
+    width: 200px;
+    margin: auto;
+}
+.create-form__import>textarea{
+    max-width: 600px;
+    max-height: 50px;
+}
+.create-page{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
